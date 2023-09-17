@@ -48,7 +48,7 @@ class _RadeemState extends State<Radeem> {
                 ),
                 Text(
                   '$_radeemAmount',
-                  style: const TextStyle(fontSize: 24),
+                  style: const TextStyle(fontSize: 24)
                 ),
                 IconButton(
                   icon: const Icon(Icons.add),

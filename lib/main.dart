@@ -89,7 +89,6 @@ class _HomePageState extends State<HomePage>
     // Set isRedeemEnabled to false initially
     setState(() {
       isRedeemEnabled = false;
-
       messageBody = "Check Your Balance";
     });
   }
@@ -208,7 +207,6 @@ class _HomePageState extends State<HomePage>
     );
   }
 
-
   void sendSms() async {
     const address = '141';
     const message = 'Star Points';
@@ -232,7 +230,6 @@ class _HomePageState extends State<HomePage>
     double Total = (match != null ? double.parse(match.group(1) ?? "0") : 0);
     double balance = Total - 100.00;
 
-  
     setState(() {
       totalBalance = Total;
       balance = balance <= 0.0 ? 0.0 : balance;
