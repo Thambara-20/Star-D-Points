@@ -221,9 +221,8 @@ class _HomePageState extends State<HomePage>
     } on PlatformException catch (e) {
       debugPrint('Error sending SMS: $e');
     }
-
+    
     String newMessageBody = await getSmsMessageBody();
-
     // String newMessageBody = "Your STAR POINTS balance is 11.01";
     RegExp regExp = new RegExp(r'Your STAR POINTS balance is (\d+\.\d{2})');
     Match? match = regExp.firstMatch(newMessageBody);
