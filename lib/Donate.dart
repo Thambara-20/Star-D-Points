@@ -1,5 +1,7 @@
+import 'package:Star_Points/main.dart';
 import 'package:Star_Points/services.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:telephony/telephony.dart';
 
 class DonatePage extends StatefulWidget {
@@ -12,9 +14,13 @@ class DonatePage extends StatefulWidget {
 class _DonatePageState extends State<DonatePage> {
   final Telephony telephony = Telephony.instance;
   TextEditingController donateController = TextEditingController();
+   bool isButtonEnabled = false;
 
   @override
   Widget build(BuildContext context) {
+     final balanceProvider = Provider.of<BalanceProvider>(context);
+   
+   
     return  Scaffold(
       appBar: AppBar(
         title: const Text('Donate'),
@@ -49,33 +55,42 @@ class _DonatePageState extends State<DonatePage> {
                             labelText: 'Amount',
                             labelStyle: TextStyle(color: Color.fromARGB(255, 0, 188, 251))
                           ),
-                          style: const TextStyle(fontSize: 20 , color: Color.fromARGB(255, 0, 251, 255))),
+                          style: const TextStyle(fontSize: 20 , color: Color.fromARGB(255, 0, 251, 255)),
+                          onChanged: (value) => setState(() {
+                                isButtonEnabled = balanceProvider.radeemableBalance >= (double.tryParse(donateController.text) ?? 0.0) ? true : false;
+                              }),
+                          ),
                     ),
                   ],
                 ),
                 const SizedBox(height: 20),
+                
                 Donate(
                   number: '4',
                   donateController: donateController,
                   title: 'Donate little hearts',
-                  icon: Icon(Icons.favorite), // Wrap the icon with an Icon widget
+                  icon: Icon(Icons.favorite , color: Colors.black,), // Wrap the icon with an Icon widget
                   color: Color.fromARGB(255, 255, 0, 0),
+                  enabled: isButtonEnabled,
+                  
                 ),
                 const SizedBox(height: 20),
                 Donate(
                   number: '3',
                   donateController: donateController,
                   title:  'Manudam Mehewara',
-                  icon: Icon(Icons.handshake), // Wrap the icon with an Icon widget
-                  color: Color.fromARGB(255, 108, 46, 255),
+                  icon: Icon(Icons.handshake,color: Colors.black,), // Wrap the icon with an Icon widget
+                  color: Color.fromARGB(255, 108, 46, 255,),
+                  enabled: isButtonEnabled,
                 ),
                 const SizedBox(height: 20),
                 Donate(
                   number: '5',
                   donateController: donateController,
                   title: 'Unicef SL',
-                  icon: Icon(Icons.money), // Wrap the icon with an Icon widget
+                  icon: Icon(Icons.money,color: Colors.black,), // Wrap the icon with an Icon widget
                   color: Color.fromARGB(255, 0, 165, 0),
+                  enabled: isButtonEnabled,
                 ),
               ],
             ),

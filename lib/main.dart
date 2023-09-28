@@ -7,10 +7,15 @@ import 'package:Star_Points/radeem.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:async';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  runApp(
+     ChangeNotifierProvider(
+      create: (context) => BalanceProvider(), // Provide the BalanceProvider
+      child: const MyApp(),
+    ),);
 }
 
 class MyApp extends StatefulWidget {
@@ -22,11 +27,14 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int _currentIndex = 0;
+  double radeemableBalance = 0.0;
+
+ 
+  
 
   final HomePage homePage = HomePage(key: PageStorageKey('HomePage'));
   final Radeem radeemPage = Radeem(key: PageStorageKey('RadeemPage'));
   final DonatePage donatePage = DonatePage(key: PageStorageKey('DonatePage'));
-
 
   late final List<Widget> _children;
 
@@ -34,10 +42,13 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     _children = [homePage, radeemPage, donatePage];
+    
   }
 
   @override
   Widget build(BuildContext context) {
+    final balanceProvider = Provider.of<BalanceProvider>(context);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'My App',
@@ -54,6 +65,7 @@ class _MyAppState extends State<MyApp> {
           onTap: (index) {
             setState(() {
               _currentIndex = index;
+            
             });
           },
           items: const <BottomNavigationBarItem>[
@@ -76,5 +88,14 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
     );
+  }
+}
+
+class BalanceProvider with ChangeNotifier {
+  double radeemableBalance = 0.0;
+
+  void updateBalance(double newBalance) {
+    radeemableBalance = newBalance;
+    notifyListeners(); // Notify listeners that the balance has changed.
   }
 }

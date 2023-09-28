@@ -39,6 +39,7 @@ dependencies:
   ussd_advanced: ^1.1.0
   sim_data: ^0.0.2
   ussd_service: ^0.1.1
+  provider: ^6.0.5
 
 dev_dependencies:
   flutter_test:
