@@ -1,5 +1,9 @@
+import 'package:Star_Points/services.dart';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:telephony/telephony.dart';
+import 'package:ussd_advanced/ussd_advanced.dart';
+import 'package:ussd_service/ussd_service.dart';
 
 class Radeem extends StatefulWidget {
   const Radeem({Key? key}) : super(key: key);
@@ -14,11 +18,18 @@ class _RadeemState extends State<Radeem> {
   TextEditingController donateController = TextEditingController();
   final Telephony telephony = Telephony.instance;
 
+  void initState() {
+    super.initState();
+    _requestUSSDPermission(); // Request USSD permission when the app starts
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Redeem'),
+        backgroundColor: Color.fromARGB(255, 0, 73, 182),
       ),
       body: Container(
         color: Color.fromARGB(255, 0, 0, 0),
@@ -61,7 +72,7 @@ class _RadeemState extends State<Radeem> {
                       // Redeem the amount
                     },
                     style: ButtonStyle(
-                      fixedSize: MaterialStateProperty.all(const Size(90, 90)),
+                      fixedSize: MaterialStateProperty.all(const Size(100, 70)),
                       backgroundColor: MaterialStateProperty.all(Colors.blue),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
@@ -73,65 +84,9 @@ class _RadeemState extends State<Radeem> {
                   ),
                 ],
               ),
-              const SizedBox(height: 40),
-              const Text('Donations',
-                  style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blue)),
-              const SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 200,
-                    child: TextField(
-                        controller: donateController,
-                        decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Color.fromARGB(255, 20, 161, 254)), // Change the color here
-                          ),
-                          labelText: 'Amount',
-                          labelStyle: TextStyle(color: Color.fromARGB(255, 0, 188, 251))
-                        ),
-                        style: const TextStyle(fontSize: 20 , color: Color.fromARGB(255, 0, 251, 255))),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () async {
-                  // Donate the amount
-                },
-                style: ButtonStyle(
-                  fixedSize: MaterialStateProperty.all(const Size(300, 90)),
-                  backgroundColor:
-                      MaterialStateProperty.all(Color.fromARGB(255, 255, 0, 0)),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50.0),
-                    ),
-                  ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text('Donate little hearts',
-                        style: TextStyle(fontSize: 20 , color: Color.fromARGB(255, 0, 0, 0))),
-                    const SizedBox(width: 20),
-                    const Icon(
-                      Icons.favorite,
-                      color: Color.fromARGB(255, 184, 3, 3),
-                      size: 30,
-                      shadows: [
-                        Shadow(color: Colors.black, offset: Offset(0, -5)),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+           
+          
+            
             ],
           ),
         ),
@@ -150,4 +105,17 @@ class _RadeemState extends State<Radeem> {
       print("Error radeem: $e");
     }
   }
+  
+  Future<void> _requestUSSDPermission() async {
+   
+    final status = await Permission.phone.request();
+    if (status.isGranted) {
+      print('permission granted');
+    } else {
+      print('permission denied');
+      // Permission denied, handle this case (e.g., show a message to the user)
+    }
+  }
+
+
 }

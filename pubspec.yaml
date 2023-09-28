@@ -37,6 +37,8 @@ dependencies:
   sms_receiver: ^0.4.1
   flutter_sms_inbox: ^1.0.2
   ussd_advanced: ^1.1.0
+  sim_data: ^0.0.2
+  ussd_service: ^0.1.1
 
 dev_dependencies:
   flutter_test:

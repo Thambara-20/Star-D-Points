@@ -2,6 +2,7 @@
 flutter_sms=C:\\Users\\thamb\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\flutter_sms-2.3.3\\
 flutter_sms_inbox=C:\\Users\\thamb\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\flutter_sms_inbox-1.0.2\\
 permission_handler=C:\\Users\\thamb\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\permission_handler-8.3.0\\
+sim_data=C:\\Users\\thamb\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\sim_data-0.0.2\\
 sms_autofill=C:\\Users\\thamb\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\sms_autofill-2.3.0\\
 sms_receiver=C:\\Users\\thamb\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\sms_receiver-0.4.1\\
 telephony=C:\\Users\\thamb\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\telephony-0.2.0\\
@@ -13,3 +14,4 @@ url_launcher_macos=C:\\Users\\thamb\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev
 url_launcher_web=C:\\Users\\thamb\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\url_launcher_web-2.0.16\\
 url_launcher_windows=C:\\Users\\thamb\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\url_launcher_windows-3.0.6\\
 ussd_advanced=C:\\Users\\thamb\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\ussd_advanced-1.1.0\\
+ussd_service=C:\\Users\\thamb\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\ussd_service-0.1.1\\
