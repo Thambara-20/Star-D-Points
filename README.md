@@ -30,7 +30,7 @@ This application was created as a learning project for Flutter development and s
    ```sh
    flutter pub get
 
-# Contributors
+## Contributors
 
 - Thambara-20
 
