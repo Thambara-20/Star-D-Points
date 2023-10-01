@@ -28,7 +28,7 @@ class _RadeemState extends State<Radeem> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Redeem'),
+        title: const Text('Redeem', style: TextStyle(color: Color.fromARGB(255, 255, 255, 255))),
         backgroundColor: Color.fromARGB(255, 0, 73, 182),
       ),
       body: Container(
@@ -80,7 +80,7 @@ class _RadeemState extends State<Radeem> {
                         ),
                       ),
                     ),
-                    child: const Text('Redeem' , style: TextStyle(fontSize: 14 , color: Color.fromARGB(255, 0, 0, 0))),
+                    child: const Text('Redeem' , style: TextStyle(fontSize: 13 , color: Color.fromARGB(255, 0, 0, 0))),
                   ),
                 ],
               ),

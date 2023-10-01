@@ -28,10 +28,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   int _currentIndex = 0;
   double radeemableBalance = 0.0;
-
- 
-  
-
+   
   final HomePage homePage = HomePage(key: PageStorageKey('HomePage'));
   final Radeem radeemPage = Radeem(key: PageStorageKey('RadeemPage'));
   final DonatePage donatePage = DonatePage(key: PageStorageKey('DonatePage'));

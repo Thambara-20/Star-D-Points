@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage>
 
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Star Points Radeem'),
+          title: const Text('Star Points Radeem', style: TextStyle(color: Color.fromARGB(255, 255, 255, 255))),
           backgroundColor: Color.fromARGB(255, 0, 73, 182),
         ),
         body: Container(

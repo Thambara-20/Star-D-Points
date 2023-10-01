@@ -23,7 +23,7 @@ class _DonatePageState extends State<DonatePage> {
    
     return  Scaffold(
       appBar: AppBar(
-        title: const Text('Donate'),
+        title: const Text('Donate', style: TextStyle(color: Color.fromARGB(255, 255, 255, 255))),
         backgroundColor: Color.fromARGB(255, 0, 73, 182),
       ),
       body: Container(
