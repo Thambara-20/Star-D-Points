@@ -103,6 +103,7 @@ class Donate extends StatelessWidget {
 
   DonateService({required number, required donateController}) async {
     String amount = donateController.text;
+    print(number);
     if (amount == "") {
       return;
     }

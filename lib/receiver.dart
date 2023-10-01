@@ -36,31 +36,3 @@ Future<String> getSmsMessageBody() async {
 
 
 
-//
-// import 'package:flutter/material.dart';
-// import 'package:flutter_sms_inbox/flutter_sms_inbox.dart';
-// import 'package:permission_handler/permission_handler.dart';
-//
-// Future<String> getSmsMessageBody(String keyword) async {
-//   SmsQuery query = SmsQuery();
-//
-//   final PermissionStatus permission = await Permission.sms.status;
-//   if (permission.isGranted) {
-//     final List<SmsMessage> messages = await query.querySms(
-//       kinds: [SmsQueryKind.inbox, SmsQueryKind.sent],
-//       sort: true,
-//
-//     );
-//     debugPrint('sms inbox messages: ${messages.length}');
-//
-//     for (int i = 0; i < messages.length; i++) {
-//       final SmsMessage message = messages[i];
-//       final String messageBody = '${message.body}';
-//       return messageBody;
-//
-//
-//   } else {
-//     await Permission.sms.request();
-//   }
-//   return '';
-// }
