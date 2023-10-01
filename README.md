@@ -25,3 +25,14 @@ This application was created as a learning project for Flutter development and s
 
    ```sh
    git clone https://github.com/Thambara-20/Star-D-Points.git
+
+2. install dependencies
+   ```sh
+   flutter pub get
+
+# Contributors
+
+- Thambara-20
+
+
+
